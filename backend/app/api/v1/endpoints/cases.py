@@ -171,3 +171,7 @@ async def process_divorce_background(case_id: str, case_data: Dict[str, Any]):
         print(f"❌ Error processing divorce case {case_id}: {e}")
         case_results[case_id]["status"] = "error"
         case_results[case_id]["error"] = str(e)
+        
+    from app.services.google_sheets import add_user_to_google_sheet# Inside your registration endpoint:
+    add_user_to_google_sheet(user.email, user.name)
+
